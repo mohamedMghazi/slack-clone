@@ -1,3 +1,7 @@
+:root {
+  --slack--color: #3f0f40;
+}
+
 * {
   margin: 0;
 }
@@ -15,3 +19,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
