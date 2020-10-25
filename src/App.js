@@ -1,7 +1,11 @@
 import React from 'react';
-import './components/style/App.css';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
+
+//
+import './components/style/App.css';
+import Chat from "./components/Chat";
 
 export default() => {
   return (
@@ -9,6 +13,11 @@ export default() => {
       <Header />
       <div className="app-body">
           <SideBar />
+          <BrowserRouter>
+              <Switch>
+                  <Route path="/rooms/:roomId" component={Chat} />
+              </Switch>
+          </BrowserRouter>
       </div>
     </div>
   );
