@@ -5,11 +5,14 @@ import SearchIcon from '@material-ui/icons/Search';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 //
 import "./style/Header.css";
+import {useStateValue} from "./StateProvider";
 
 export default () => {
+    const [{ user }] = useStateValue();
+
     return <div id="header">
         <div className="header-left">
-            <Avatar className="header-avatar" alt="user-icon" />
+            <Avatar className="header-avatar" alt={user?.displayName} src={user?.photoURL} />
             <AccessTimeIcon />
         </div>
         <div className="header-search">

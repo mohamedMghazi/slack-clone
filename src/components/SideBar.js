@@ -16,8 +16,10 @@ import AddIcon from '@material-ui/icons/Add';
 //
 import "./style/SideBar.css";
 import db from "../firebase/firebase";
+import {useStateValue} from "./StateProvider";
 
 export default () => {
+    const [{ user }] = useStateValue();
     const [channels, setChannels] = useState([]);
 
     useEffect(() => {
@@ -37,7 +39,7 @@ export default () => {
                <h2>clever Programmer</h2>
                <h3>
                    <FiberManualRecordIcon/>
-                   Mohamed Ghazi
+                   {user?.displayName}
                </h3>
            </div>
             <CreateIcon />
@@ -53,9 +55,9 @@ export default () => {
         <div className="border"> </div>
         <SidebarOptions Icon={ExpandMoreIcon} title="Channels" />
         <div className="border"> </div>
-        <SidebarOptions Icon={AddIcon} title="Add channel" />
+        <SidebarOptions Icon={AddIcon} addChannelOption title="Add channel" />
         {channels.map(channel => {
-            return <SidebarOptions key={channel.id} title={channel.name} />
+            return <SidebarOptions key={channel.id} id={channel.id} title={channel.name} />
         })}
     </div>
 }
