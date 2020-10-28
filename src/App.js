@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
@@ -6,12 +6,13 @@ import SideBar from "./components/SideBar";
 //
 import './components/style/App.css';
 import Chat from "./components/Chat";
-import SidebarOptions from "./components/SidebarOptions";
 import Login from "./components/Login";
 import {useStateValue} from "./components/StateProvider";
 
 export default () => {
-    const [{ user }, dispatch] = useStateValue()
+    // eslint-disable-next-line
+    const [{ user }, dispatch] = useStateValue();
+
     return (
         <div className="app">
             <BrowserRouter>

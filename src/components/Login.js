@@ -6,6 +6,7 @@ import {actionValues} from "./redux/Reducer";
 
 
 export default () => {
+    // eslint-disable-next-line
     const [{user}, dispatch] = useStateValue()
     const signIn = () => {
         auth
@@ -14,7 +15,7 @@ export default () => {
                 console.log(r);
                 dispatch({
                     type: actionValues.SET_USER,
-                    user: user
+                    user: r.user
                 })
             })
             .catch(err => alert(err.message))

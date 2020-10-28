@@ -12,7 +12,6 @@ export default () => {
 
     return <div id="header">
         <div className="header-left">
-            <Avatar className="header-avatar" alt={user?.displayName} src={user?.photoURL} />
             <AccessTimeIcon />
         </div>
         <div className="header-search">
@@ -21,6 +20,7 @@ export default () => {
         </div>
         <div className="header-right">
             <HelpOutlineIcon />
+            <Avatar className="header-avatar" alt={user?.displayName} src={user?.photoURL} />
         </div>
     </div>
 }

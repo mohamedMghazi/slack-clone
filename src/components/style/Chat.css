@@ -15,7 +15,9 @@
 
 .chat-channelName {
     display: flex;
+    align-items: center;
     text-transform: lowercase;
+    font-size: 15px;
 }
 
 .chat-channelName > .MuiSvgIcon-root {

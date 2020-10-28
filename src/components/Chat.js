@@ -12,7 +12,7 @@ export default () => {
   const { roomId } = useParams();
   const [ roomDetails, setRoomDetails ] = useState(null);
   const [ roomMessages, setRoomMessages ] = useState([]);
-
+  console.log(roomMessages)
   useEffect(() => {
 
     if (roomId) {
@@ -25,11 +25,10 @@ export default () => {
         .doc(roomId)
         .collection("messages")
         .orderBy("timestamp", "asc")
-        .onSnapshot(snapshot => setRoomDetails(snapshot.docs.map(doc => doc.data())))
+        .onSnapshot(snapshot => setRoomMessages(snapshot.docs.map(doc => doc.data())))
 
   }, [roomId])
 
-  console.log(roomDetails);
   console.log(roomMessages);
 
   return (
@@ -37,7 +36,7 @@ export default () => {
       <div className="chat-header">
         <div className="chat-headerLeft">
           <h4 className="chat-channelName">
-            <strong>{roomDetails?.name}</strong>
+            <strong>#{roomDetails?.name}</strong>
             <StarBorderOutlinedIcon />
           </h4>
         </div>
@@ -47,21 +46,23 @@ export default () => {
           </p>
         </div>
 
-        <div className="chat-message">
-          {
-            roomMessages.map(({user, userImg, message, timestamp}) => (
-                <Message
-                    meassage={message}
-                    user={user}
-                    userImg={userImg}
-                    timestamp={timestamp}
-                />
-            ))
-          }
-        </div>
 
-        <ChatInput channelName={roomDetails?.name} channelId />
       </div>
+      <div className="chat-message">
+        {
+          roomMessages.map(({user, userImage, message, timestamp}, i) => (
+
+              <Message
+                  key={i}
+                  message={message}
+                  user={user}
+                  userImg={userImage}
+                  timestamp={timestamp}
+              />
+          ))
+        }
+      </div>
+      <ChatInput channelName={roomDetails?.name} channelId={roomId} />
     </div>
   );
 };

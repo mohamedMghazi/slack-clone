@@ -36,7 +36,7 @@ export default () => {
     return <div id="sidebar">
         <div className="sidebar-header">
            <div className="sidebar-info">
-               <h2>clever Programmer</h2>
+               <h2>Slack+</h2>
                <h3>
                    <FiberManualRecordIcon/>
                    {user?.displayName}
