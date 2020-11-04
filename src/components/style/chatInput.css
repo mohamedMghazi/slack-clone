@@ -1,0 +1,28 @@
+.chatInput {
+    border-radius: 20px;
+}
+
+.chatInput > form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.chatInput > form > input {
+    outline: none;
+    position: fixed;
+    bottom: 30px;
+    width: 60%;
+    border: 1px solid #a5a5a5;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.chatInput > form > input:focus::placeholder {
+    color: transparent;
+}
+
+.chatInput > form > button {
+     display: none !important;
+}

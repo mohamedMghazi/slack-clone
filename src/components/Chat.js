@@ -29,7 +29,7 @@ export default () => {
 
   }, [roomId])
 
-  console.log(roomMessages);
+  console.log(roomDetails);
 
   return (
     <div className="chat">
